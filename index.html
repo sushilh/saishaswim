@@ -1375,13 +1375,15 @@
 
   .tab-panel {
     display: none;
-    animation: tabFadeIn 0.3s ease;
   }
 
-  .tab-panel.active { display: block; }
+  .tab-panel.active {
+    display: block;
+    animation: tabFadeIn 0.35s ease both;
+  }
 
   @keyframes tabFadeIn {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
@@ -2326,6 +2328,9 @@
 
 
   <!-- ── BEST TIMES ── -->
+  <div class="section s1" style="margin-bottom:20px;">
+    <div class="section-label">Best Times</div>
+    <div class="grid-2">
 
       <div class="card">
         <div class="card-title">SCY — Short Course Yards</div>
@@ -2438,7 +2443,7 @@
       </div>
 
     </div>
-  </div>
+  </div><!-- end best times section -->
 
   <!-- ── 3D FLIP EVENT CARDS (in EVENTS tab) ── -->
   <div class="section reveal" style="margin-bottom:32px;">
@@ -3278,26 +3283,15 @@
    TAB SYSTEM
 ════════════════════════════════════════ */
 function showTab(name) {
-  // Hide all panels
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
 
-  // Show selected
   const panel = document.getElementById('tab-' + name);
   const btn   = document.getElementById('btn-' + name);
   if (panel) panel.classList.add('active');
   if (btn)   btn.classList.add('active');
 
-  // Scroll to top of content
   window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  // Re-trigger reveal animations in new tab
-  setTimeout(() => {
-    panel && panel.querySelectorAll('.reveal').forEach(el => {
-      el.classList.remove('visible');
-      revealObserver.observe(el);
-    });
-  }, 50);
 }
 
 /* ── SCROLL REVEAL ── */
@@ -3419,6 +3413,7 @@ function animateCounter(id, target, duration = 1600, suffix = '') {
 
 /* ── INIT ── */
 window.addEventListener('load', () => {
+  showTab('today');
   updateCountdown();
   setInterval(updateCountdown, 1000);
   updatePredictions();
@@ -3429,414 +3424,6 @@ window.addEventListener('load', () => {
     animateCounter('cntSecs',    24, 2000, 's');
     animateCounter('cntTraining', 89);
   }, 700);
-});
-</script>
-
-</body>
-</html>
-    </div>
-    <p class="flip-hint">Tap or hover a card to flip ↩</p>
-    <div class="flip-grid">
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <div class="flip-label">50 Freestyle · LCM · T1</div>
-            <div class="flip-time">41.41</div>
-            <div class="flip-event">Best Time</div>
-            <div class="flip-trend-chip">↓ −2.65s/meet</div>
-          </div>
-          <div class="flip-back t1">
-            <div class="flip-back-title">50 Free Breakdown</div>
-            <div class="flip-back-stat">
-              A Target: 36.59<br>
-              Gap: −4.82s<br>
-              1yr total: −5.3s<br>
-              3yr total: −17.48s<br>
-              Best meet: Ragnarok '25
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <div class="flip-label">50 Breaststroke · LCM · T1</div>
-            <div class="flip-time">55.11</div>
-            <div class="flip-event">Best Time</div>
-            <div class="flip-trend-chip">↓ −1.08s/meet</div>
-          </div>
-          <div class="flip-back t1">
-            <div class="flip-back-title">50 Breast Breakdown</div>
-            <div class="flip-back-stat">
-              A Target: 48.79<br>
-              Gap: −6.32s<br>
-              1yr total: −4.33s<br>
-              3yr total: −20.53s<br>
-              Best meet: Aloha '25
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <div class="flip-label">100 Freestyle · LCM · T2</div>
-            <div class="flip-time">1:35.61</div>
-            <div class="flip-event">Best Time</div>
-            <div class="flip-trend-chip">↓ −2.31s/meet</div>
-          </div>
-          <div class="flip-back t2">
-            <div class="flip-back-title">100 Free Breakdown</div>
-            <div class="flip-back-stat">
-              A Target: 1:21.89<br>
-              Gap: −13.72s<br>
-              1yr total: −6.93s<br>
-              3yr total: −31.03s<br>
-              Best meet: Ragnarok '25
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <div class="flip-label">100 Breaststroke · LCM · T2</div>
-            <div class="flip-time">1:59.92</div>
-            <div class="flip-event">Best Time</div>
-            <div class="flip-trend-chip">↓ −0.64s/meet</div>
-          </div>
-          <div class="flip-back t2">
-            <div class="flip-back-title">100 Breast Breakdown</div>
-            <div class="flip-back-stat">
-              A Target: 1:48.39<br>
-              Gap: −11.53s<br>
-              1yr total: −1.29s<br>
-              3yr total: −37.6s<br>
-              Best meet: Ragnarok '25
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <div class="flip-label">50 Butterfly · LCM · T3</div>
-            <div class="flip-time">51.51</div>
-            <div class="flip-event">Best Time</div>
-            <div class="flip-trend-chip">↓ −1.38s/meet</div>
-          </div>
-          <div class="flip-back t3">
-            <div class="flip-back-title">50 Fly Breakdown</div>
-            <div class="flip-back-stat">
-              A Target: 41.59<br>
-              Gap: −9.92s<br>
-              1yr total: −5.53s<br>
-              3yr total: −19.21s<br>
-              Best meet: Ragnarok '25
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-front">
-            <div class="flip-label">50 Backstroke · LCM · Dev</div>
-            <div class="flip-time">54.12</div>
-            <div class="flip-event">Best Time</div>
-            <div class="flip-trend-chip" style="background:rgba(160,174,192,0.1);color:#6b7f99;border-color:rgba(160,174,192,0.2);">↓ −1.35s/meet</div>
-          </div>
-          <div class="flip-back dev">
-            <div class="flip-back-title">50 Back Breakdown</div>
-            <div class="flip-back-stat">
-              A Target: 43.59<br>
-              Gap: −10.53s<br>
-              1yr total: −4.04s<br>
-              3yr total: −11.65s<br>
-              Best: Spring Invite '25
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ── PREDICTION ENGINE ── -->
-  <div class="section reveal" style="margin-bottom:32px;">
-    <div class="section-label">🔮 Prediction Engine</div>
-    <div class="predictor-card">
-      <div class="predictor-title">Race Day Predictor</div>
-      <div class="predictor-sub">Adjust training load, rest days &amp; taper to forecast meet times</div>
-
-      <div class="predictor-grid">
-        <div class="predictor-control">
-          <div class="control-label">
-            <span class="control-name">🏋️ Training Load</span>
-            <span class="control-val" id="loadVal">80%</span>
-          </div>
-          <input type="range" class="predictor-slider" id="loadSlider" min="40" max="100" value="80"
-            oninput="document.getElementById('loadVal').textContent=this.value+'%'; updatePredictions()">
-        </div>
-
-        <div class="predictor-control">
-          <div class="control-label">
-            <span class="control-name">😴 Rest Days</span>
-            <span class="control-val" id="restVal">2</span>
-          </div>
-          <input type="range" class="predictor-slider gold" id="restSlider" min="0" max="5" value="2"
-            oninput="document.getElementById('restVal').textContent=this.value; updatePredictions()">
-        </div>
-
-        <div class="predictor-control">
-          <div class="control-label">
-            <span class="control-name">📉 Taper Days</span>
-            <span class="control-val" id="taperVal">3</span>
-          </div>
-          <input type="range" class="predictor-slider green" id="taperSlider" min="0" max="7" value="3"
-            oninput="document.getElementById('taperVal').textContent=this.value; updatePredictions()">
-        </div>
-
-        <div class="predictor-control">
-          <div class="control-label">
-            <span class="control-name">🌡️ Meet Pressure</span>
-            <span class="control-val" id="pressureVal">Medium</span>
-          </div>
-          <input type="range" class="predictor-slider" id="pressureSlider" min="1" max="3" value="2"
-            oninput="document.getElementById('pressureVal').textContent=['Low','Medium','High'][this.value-1]; updatePredictions()">
-        </div>
-      </div>
-
-      <div class="predictor-output" id="predOutput">
-        <div class="pred-result">
-          <div class="pred-event-name">50 Free LCM</div>
-          <div class="pred-time" id="pred50fr">41.1</div>
-          <div class="pred-a-target">A: 36.59</div>
-          <span class="pred-badge miss" id="badge50fr">Working toward A</span>
-        </div>
-        <div class="pred-result">
-          <div class="pred-event-name">50 Breast LCM</div>
-          <div class="pred-time" id="pred50br">54.8</div>
-          <div class="pred-a-target">A: 48.79</div>
-          <span class="pred-badge miss" id="badge50br">Working toward A</span>
-        </div>
-        <div class="pred-result">
-          <div class="pred-event-name">100 Free LCM</div>
-          <div class="pred-time" id="pred100fr">1:34.5</div>
-          <div class="pred-a-target">A: 1:21.89</div>
-          <span class="pred-badge miss" id="badge100fr">Working toward A</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── LIVE CONTROLS ── -->
-  <div class="section reveal" style="margin-bottom:32px;">
-    <div class="section-label">⚡ Live Dashboard</div>
-    <div class="live-panel">
-
-      <!-- Season Countdown -->
-      <div class="live-card tilt-card" id="countdownCard">
-        <div class="live-card-title">
-          <span class="live-dot"></span>Ragnarok Countdown
-        </div>
-        <div style="font-family:'DM Mono',monospace;font-size:10px;color:#6b7f99;margin-bottom:12px;">Jul 10–12, 2026 · Peak Meet</div>
-        <div class="countdown-grid">
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cdDays">--</span>
-            <span class="countdown-lbl">Days</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cdHours">--</span>
-            <span class="countdown-lbl">Hours</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-num" id="cdMins">--</span>
-            <span class="countdown-lbl">Mins</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-unit" style="background:linear-gradient(135deg,#b87a00,#e09a20);border:none;padding:10px 4px;">
-              <span class="countdown-num" id="cdSecs" style="color:white;">--</span>
-              <span class="countdown-lbl" style="color:rgba(255,255,255,0.8);">Secs</span>
-            </span>
-          </div>
-        </div>
-        <div style="margin-top:14px;font-family:'DM Mono',monospace;font-size:9px;color:#6b7f99;letter-spacing:0.1em;">
-          JTSC Spring Invite in <span id="nextMeetDays" style="color:#c0392b;font-weight:600;">--</span> days
-        </div>
-      </div>
-
-      <!-- Progress Tracker -->
-      <div class="live-card tilt-card">
-        <div class="live-card-title">Season Progress</div>
-        <div class="counter-row">
-          <span class="counter-label">Meets completed</span>
-          <span class="counter-num" id="cntMeets">0</span>
-        </div>
-        <div class="counter-row">
-          <span class="counter-label">Best time drops this year</span>
-          <span class="counter-num" id="cntDrops">0</span>
-        </div>
-        <div class="counter-row">
-          <span class="counter-label">Total seconds cut (LCM)</span>
-          <span class="counter-num" id="cntSecs">0</span>
-        </div>
-        <div class="counter-row">
-          <span class="counter-label">Days until A time goal</span>
-          <span class="counter-num" id="cntDaysA" style="color:#b87a00;">--</span>
-        </div>
-        <div class="counter-row" style="border-bottom:none;">
-          <span class="counter-label">Training days logged</span>
-          <span class="counter-num" id="cntTraining">0</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
-
-<script>
-/* ── SCROLL REVEAL ── */
-const reveals = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
-    }
-  });
-}, { threshold: 0.1 });
-reveals.forEach(r => revealObserver.observe(r));
-
-/* ── 3D TILT ON MOUSE MOVE ── */
-document.querySelectorAll('.tilt-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width / 2);
-    const dy = (e.clientY - cy) / (rect.height / 2);
-    card.style.transform = `perspective(800px) rotateY(${dx * 8}deg) rotateX(${-dy * 6}deg) translateZ(8px)`;
-  });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateZ(0)';
-  });
-});
-
-/* ── PREDICTION ENGINE ── */
-function updatePredictions() {
-  const load = parseInt(document.getElementById('loadSlider').value) / 100;
-  const rest = parseInt(document.getElementById('restSlider').value);
-  const taper = parseInt(document.getElementById('taperSlider').value);
-  const pressure = parseInt(document.getElementById('pressureSlider').value);
-
-  // Base times (best LCM)
-  const bases = { fr50: 41.41, br50: 55.11, fr100: 95.61 };
-
-  // Improvement factor: more rest + taper = faster, high load = slight fatigue
-  const restBonus   = rest   * 0.18;
-  const taperBonus  = taper  * 0.22;
-  const loadPenalty = (load - 0.7) * 0.8;
-  const pressureEffect = [0.15, 0, -0.12][pressure - 1]; // low=slow, med=neutral, high=fast
-
-  const factor = restBonus + taperBonus - loadPenalty + pressureEffect;
-
-  const pr50fr  = Math.max(36.59, (bases.fr50  - factor).toFixed(2));
-  const pr50br  = Math.max(48.79, (bases.br50  - factor * 0.85).toFixed(2));
-  const pr100fr = bases.fr100 - factor * 2.1;
-  const pr100frFmt = formatTime(Math.max(81.89, pr100fr));
-
-  document.getElementById('pred50fr').textContent  = pr50fr;
-  document.getElementById('pred50br').textContent  = pr50br;
-  document.getElementById('pred100fr').textContent = pr100frFmt;
-
-  // Badges
-  setBadge('badge50fr',  pr50fr,  36.59, 38.0);
-  setBadge('badge50br',  pr50br,  48.79, 51.0);
-  setBadge('badge100fr', parseMMSS(pr100frFmt), 81.89, 88.0);
-}
-
-function setBadge(id, val, aTime, closeThreshold) {
-  const el = document.getElementById(id);
-  const pTime = document.getElementById(id.replace('badge', 'pred'));
-  if (val <= aTime) {
-    el.className = 'pred-badge hit'; el.textContent = '🟢 A Time!';
-    pTime.className = 'pred-time hit';
-  } else if (val <= closeThreshold) {
-    el.className = 'pred-badge close'; el.textContent = '🟡 Getting close';
-    pTime.className = 'pred-time close';
-  } else {
-    el.className = 'pred-badge miss'; el.textContent = 'Working toward A';
-    pTime.className = 'pred-time miss';
-  }
-}
-
-function formatTime(secs) {
-  const m = Math.floor(secs / 60);
-  const s = (secs % 60).toFixed(2).padStart(5, '0');
-  return m + ':' + s;
-}
-
-function parseMMSS(str) {
-  const [m, s] = str.split(':');
-  return parseInt(m) * 60 + parseFloat(s);
-}
-
-/* ── COUNTDOWN ── */
-function updateCountdown() {
-  const ragnarok = new Date('2026-07-10T08:00:00');
-  const springInvite = new Date('2026-04-26T08:00:00');
-  const now = new Date();
-
-  const diff = ragnarok - now;
-  if (diff > 0) {
-    const days  = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins  = Math.floor((diff % 3600000) / 60000);
-    const secs  = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cdDays').textContent  = days;
-    document.getElementById('cdHours').textContent = String(hours).padStart(2,'0');
-    document.getElementById('cdMins').textContent  = String(mins).padStart(2,'0');
-    document.getElementById('cdSecs').textContent  = String(secs).padStart(2,'0');
-    document.getElementById('cntDaysA').textContent = days;
-  }
-
-  const diffNext = springInvite - now;
-  const nextDays = diffNext > 0 ? Math.ceil(diffNext / 86400000) : 0;
-  document.getElementById('nextMeetDays').textContent = nextDays;
-}
-
-/* ── ANIMATED COUNTERS ── */
-function animateCounter(id, target, duration = 1800, suffix = '') {
-  const el = document.getElementById(id);
-  const start = performance.now();
-  function step(now) {
-    const progress = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.round(eased * target) + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-/* ── INIT ── */
-window.addEventListener('load', () => {
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-  updatePredictions();
-
-  // Animate counters after short delay
-  setTimeout(() => {
-    animateCounter('cntMeets', 0);
-    animateCounter('cntDrops', 7);
-    animateCounter('cntSecs', 24, 2000, 's');
-    animateCounter('cntTraining', 89);
-  }, 600);
 });
 </script>
 
