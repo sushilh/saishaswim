@@ -2093,6 +2093,25 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
 .notif-btn:hover { background: var(--success); color: white; }
 .notif-btn.enabled { background: var(--success); color: white; }
 
+.export-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 99px;
+  background: var(--success-dim);
+  border: 1.5px solid rgba(15,122,74,0.25);
+  color: var(--success); font-size: 11px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s ease;
+  letter-spacing: 0.04em;
+}
+.export-btn:hover {
+  background: var(--success); color: white;
+  box-shadow: 0 4px 12px rgba(15,122,74,0.3);
+  transform: translateY(-1px);
+}
+.export-btn.saving {
+  background: var(--accent-dim); color: var(--accent);
+  border-color: var(--accent); cursor: wait;
+}
+
 </style>
 
 </head>
@@ -2441,6 +2460,9 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         <span class="tag tag-aqua">Freestyle Sprint</span>
         <span class="tag tag-aqua">Breaststroke</span>
         <span class="tag tag-gold">Age 10</span>
+        <button class="export-btn" onclick="exportWithPhoto()" title="Save HTML file with photo embedded">
+          💾 Export with Photo
+        </button>
       </div>
     </div>
     <div class="hero-stats">
@@ -2465,7 +2487,7 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         <div class="stat-gap" style="color:var(--gold)">−6.32s to A cut</div>
       </div>
       <div class="stat-block">
-        <div class="stat-val count" data-target="41.41">41.41</div>
+        <div class="stat-val count" data-target="40.25">40.25</div>
         <div class="stat-lbl">50 Free LCM</div>
         <svg class="sparkline" viewBox="0 0 80 24" preserveAspectRatio="none">
           <polyline points="0,22 16,21 32,18 48,15 64,12 80,8" fill="none" stroke="rgba(2,132,168,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2492,10 +2514,83 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
       </button>
     </div>
     <div class="rn-events">
-      <div class="rn-event"><span class="rn-stroke">🏊 50 Free</span><span class="rn-entry">41.41</span><span class="rn-arrow">→</span><span class="rn-target">&lt;40.6</span></div>
-      <div class="rn-event"><span class="rn-stroke">🐸 50 Breast</span><span class="rn-entry">55.11</span><span class="rn-arrow">→</span><span class="rn-target">&lt;54.1</span></div>
-      <div class="rn-event"><span class="rn-stroke">🌊 100 Free</span><span class="rn-entry">1:35.61</span><span class="rn-arrow">→</span><span class="rn-target">&lt;1:31</span></div>
+      <div class="rn-event"><span class="rn-stroke">🏊 50 Free</span><span class="rn-entry">40.25</span><span class="rn-arrow">→</span><span class="rn-target">&lt;40.0</span></div>
+      <div class="rn-event"><span class="rn-stroke">🐸 50 Breast</span><span class="rn-entry">48.96</span><span class="rn-arrow">→</span><span class="rn-target">&lt;48.79</span></div>
+      <div class="rn-event"><span class="rn-stroke">🌊 100 Free</span><span class="rn-entry">1:28.10</span><span class="rn-arrow">→</span><span class="rn-target">&lt;1:25</span></div>
       <div class="rn-event"><span class="rn-stroke">🦋 50 Fly</span><span class="rn-entry">51.51</span><span class="rn-arrow">→</span><span class="rn-target">&lt;50.5</span></div>
+    </div>
+  </div>
+
+  <!-- ── ACHIEVEMENT: SPRING INTRASQUAD ── -->
+  <div class="section reveal" style="margin-bottom:32px;">
+    <div class="section-label">🏆 Latest Meet · JTSC Spring Intrasquad · Apr 10, 2026</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:16px;">
+
+      <!-- 50 Free PB -->
+      <div class="card" style="border-color:rgba(15,122,74,0.3);background:rgba(15,122,74,0.04);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--success);">50 Free LCM 🏆</div>
+          <span style="font-size:9px;padding:2px 8px;border-radius:99px;background:rgba(15,122,74,0.15);color:var(--success);font-weight:700;">PB</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:var(--success);letter-spacing:-0.03em;line-height:1;">40.25</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">was 41.41 · <span style="color:var(--success);font-weight:600;">↓ −1.16s</span></div>
+        <div style="margin-top:10px;height:4px;border-radius:99px;background:var(--border);overflow:hidden;">
+          <div style="height:100%;width:88%;border-radius:99px;background:linear-gradient(90deg,var(--success),#6ee7b7);"></div>
+        </div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px;">3.66s from A time (36.59)</div>
+      </div>
+
+      <!-- 100 Free PB -->
+      <div class="card" style="border-color:rgba(15,122,74,0.3);background:rgba(15,122,74,0.04);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--success);">100 Free LCM 🏆</div>
+          <span style="font-size:9px;padding:2px 8px;border-radius:99px;background:rgba(15,122,74,0.15);color:var(--success);font-weight:700;">PB</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:var(--success);letter-spacing:-0.03em;line-height:1;">1:28.10</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">was 1:35.61 · <span style="color:var(--success);font-weight:600;">↓ −7.51s</span></div>
+        <div style="margin-top:10px;height:4px;border-radius:99px;background:var(--border);overflow:hidden;">
+          <div style="height:100%;width:75%;border-radius:99px;background:linear-gradient(90deg,var(--success),#6ee7b7);"></div>
+        </div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px;">6.21s from A time (1:21.89)</div>
+      </div>
+
+      <!-- 50 Breast PB — SO CLOSE to A time! -->
+      <div class="card" style="border-color:rgba(180,83,9,0.4);background:rgba(180,83,9,0.05);">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);">50 Breast LCM 🔥</div>
+          <span style="font-size:9px;padding:2px 8px;border-radius:99px;background:rgba(180,83,9,0.15);color:var(--gold);font-weight:700;">PB · SO CLOSE</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:var(--gold);letter-spacing:-0.03em;line-height:1;">48.96</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">was 55.11 · <span style="color:var(--gold);font-weight:600;">↓ −6.15s</span></div>
+        <div style="margin-top:10px;height:4px;border-radius:99px;background:var(--border);overflow:hidden;">
+          <div style="height:100%;width:99%;border-radius:99px;background:linear-gradient(90deg,var(--gold),#fde68a);animation:shimmer 1.5s infinite;"></div>
+        </div>
+        <div style="font-size:10px;color:var(--gold);margin-top:4px;font-weight:700;">⚡ Only 0.17s from A time (48.79)!</div>
+      </div>
+
+      <!-- 50 Fly — slower -->
+      <div class="card" style="opacity:0.75;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);">50 Fly LCM</div>
+          <span style="font-size:9px;padding:2px 8px;border-radius:99px;background:var(--border);color:var(--muted);font-weight:700;">B Standard</span>
+        </div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;color:var(--text-dim);letter-spacing:-0.03em;line-height:1;">52.79</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">PB is 51.51 · <span style="color:var(--text-dim);">+1.28s this swim</span></div>
+        <div style="margin-top:10px;height:4px;border-radius:99px;background:var(--border);overflow:hidden;">
+          <div style="height:100%;width:28%;border-radius:99px;background:var(--muted);"></div>
+        </div>
+        <div style="font-size:9px;color:var(--muted);margin-top:4px;">10.20s from A time (41.59)</div>
+      </div>
+
+    </div>
+
+    <!-- Summary callout -->
+    <div style="background:linear-gradient(135deg,rgba(15,122,74,0.08),rgba(180,83,9,0.06));border:1px solid rgba(15,122,74,0.2);border-radius:var(--radius-md);padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <div style="font-size:32px;">🌊</div>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:var(--text);">Season Opener: 3 PBs · All BB standard</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:4px;">50 Breast is now just <strong style="color:var(--gold);">0.17s</strong> from the A time. 100 Free dropped <strong style="color:var(--success);">7.51 seconds</strong>. Spring Invite in <span id="achieveDays" style="color:var(--accent);font-weight:700;"></span> days — prime time to push for that A.</div>
+      </div>
     </div>
   </div>
 
@@ -2534,21 +2629,21 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
       <div class="trophy-card">
         <span class="trophy-icon">🏆</span>
         <div class="trophy-event">50 Free LCM</div>
-        <div class="trophy-time">41.41</div>
+        <div class="trophy-time">40.25</div>
         <div class="trophy-course">Long Course</div>
         <div class="trophy-date">Ragnarok Jul '25</div>
       </div>
       <div class="trophy-card">
         <span class="trophy-icon">🏆</span>
         <div class="trophy-event">50 Breast LCM</div>
-        <div class="trophy-time">55.11</div>
+        <div class="trophy-time">48.96</div>
         <div class="trophy-course">Long Course</div>
         <div class="trophy-date">Aloha May '25</div>
       </div>
       <div class="trophy-card">
         <span class="trophy-icon">🏆</span>
         <div class="trophy-event">100 Free LCM</div>
-        <div class="trophy-time">1:35.61</div>
+        <div class="trophy-time">1:28.10</div>
         <div class="trophy-course">Long Course</div>
         <div class="trophy-date">Ragnarok Jul '25</div>
       </div>
@@ -2611,21 +2706,21 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
           <div class="db-bullet"></div>
           <div>
             <strong>50 Free</strong>
-            <div class="db-sub">Entry 41.41 · target &lt; 40.6</div>
+            <div class="db-sub">Entry 40.25 · target &lt; 40.0</div>
           </div>
         </div>
         <div class="db-item">
           <div class="db-bullet"></div>
           <div>
             <strong>50 Breast</strong>
-            <div class="db-sub">Entry 55.11 · target &lt; 54.1</div>
+            <div class="db-sub">Entry 48.96 · target &lt; 48.79</div>
           </div>
         </div>
         <div class="db-item">
           <div class="db-bullet"></div>
           <div>
             <strong>100 Free</strong>
-            <div class="db-sub">Entry 1:35.61 · target &lt; 1:31</div>
+            <div class="db-sub">Entry 1:28.10 · target &lt; 1:25</div>
           </div>
         </div>
         <div class="db-item">
@@ -2695,7 +2790,7 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
           <div>
             <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--green);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px;">If</div>
             <div style="font-size:13px;font-weight:600;color:var(--text);">100 Free drops</div>
-            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;">current: 1:35.61 → target &lt;1:33</div>
+            <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;">current: 1:28.10 → target &lt;1:25</div>
           </div>
         </div>
         <div style="background:var(--border);display:flex;align-items:center;justify-content:center;">
@@ -2767,9 +2862,9 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         <div class="trend-header">
           <div>
             <div class="trend-event-name">50 Freestyle <span style="font-size:13px;color:var(--gold);">T1</span></div>
-            <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">LCM · Best 41.41 · Ragnarok Jul 2025</div>
+            <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">LCM · Best 40.25 · Spring Intrasquad Apr 2026</div>
           </div>
-          <div class="trend-badge improving">↓ −2.65/meet</div>
+          <div class="trend-badge improving">↓ −1.16 (Apr)</div>
         </div>
         <!-- Enhanced SVG chart: 5 data points + A-time line + projection -->
         <div class="chart-container">
@@ -2789,7 +2884,7 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
             <text x="252" y="11" class="chart-label" fill="var(--gold)">A</text>
             <!-- Area fill -->
             <polygon points="10,68 70,58 130,48 190,32 250,20 250,75 10,75" fill="url(#cg50fr)" class="chart-area"/>
-            <!-- Main line: 58.89→52.1→46.71→43.2→41.41 -->
+            <!-- Main line: 58.89→52.1→46.71→43.2→41.41→40.25 -->
             <polyline points="10,68 70,58 130,48 190,32 250,20" class="chart-line" stroke="var(--success)"/>
             <!-- Projection dotted -->
             <line x1="250" y1="20" x2="290" y2="10" class="chart-proj-line" stroke="var(--success)"/>
@@ -2798,10 +2893,11 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
             <circle cx="70"  cy="58" r="4" fill="var(--text-dim)"  class="chart-dot" data-val="52.1"  data-lbl="2023"/>
             <circle cx="130" cy="48" r="4" fill="var(--accent)"    class="chart-dot" data-val="46.71" data-lbl="2024"/>
             <circle cx="190" cy="32" r="4" fill="var(--accent)"    class="chart-dot" data-val="43.2"  data-lbl="Jan 25"/>
-            <circle cx="250" cy="20" r="5" fill="var(--success)"   class="chart-dot" data-val="41.41" data-lbl="Best"/>
+            <circle cx="250" cy="20" r="4" fill="var(--accent)"    class="chart-dot" data-val="41.41" data-lbl="Ragnarok '25"/>
+            <circle cx="285" cy="14" r="5" fill="var(--success)"   class="chart-dot" data-val="40.25" data-lbl="Intrasquad '26 🏆"/>
             <!-- Value labels -->
             <text x="10"  y="78" text-anchor="middle" class="chart-val-label" fill="var(--text-dim)" font-size="8">58.89</text>
-            <text x="250" y="14" text-anchor="middle" class="chart-val-label" fill="var(--success)">41.41</text>
+            <text x="285" y="8"  text-anchor="middle" class="chart-val-label" fill="var(--success)">40.25</text>
           </svg>
           <div class="chart-tooltip" id="tt-50fr"></div>
         </div>
@@ -2816,9 +2912,9 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         <div class="trend-header">
           <div>
             <div class="trend-event-name">100 Freestyle <span style="font-size:13px;color:var(--accent);">T2</span></div>
-            <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">LCM · Best 1:35.61 · Ragnarok Jul 2025</div>
+            <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">LCM · Best 1:28.10 · Spring Intrasquad Apr 2026</div>
           </div>
-          <div class="trend-badge improving">↓ −2.31/meet</div>
+          <div class="trend-badge improving">↓ −7.51 (Apr)</div>
         </div>        <div class="chart-container">
           <svg class="chart-svg" viewBox="0 0 260 80" overflow="visible">
             <defs>
@@ -2839,7 +2935,7 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
 <circle cx="70" cy="57" r="4" fill="var(--text-dim)" class="chart-dot" data-val="1:49.2" data-lbl="2023"/>
 <circle cx="130" cy="42" r="4" fill="var(--accent)" class="chart-dot" data-val="1:42.0" data-lbl="2024"/>
 <circle cx="190" cy="28" r="4" fill="var(--accent)" class="chart-dot" data-val="1:38.1" data-lbl="Jan 25"/>
-<circle cx="250" cy="18" r="5" fill="var(--success)" class="chart-dot" data-val="1:35.61" data-lbl="Best"/>
+<circle cx="250" cy="18" r="5" fill="var(--success)" class="chart-dot" data-val="1:28.10" data-lbl="Best"/>
 
           </svg>
           <div class="chart-tooltip"></div>
@@ -2855,9 +2951,9 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         <div class="trend-header">
           <div>
             <div class="trend-event-name">50 Breaststroke <span style="font-size:13px;color:var(--gold);">T1</span></div>
-            <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">LCM · Best 55.11 · Aloha May 2025</div>
+            <div style="font-size:9px;color:var(--text-dim);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;">LCM · Best 48.96 · Spring Intrasquad Apr 2026</div>
           </div>
-          <div class="trend-badge improving">↓ −1.08/meet</div>
+          <div class="trend-badge improving">↓ −6.15 (Apr)</div>
         </div>        <div class="chart-container">
           <svg class="chart-svg" viewBox="0 0 260 80" overflow="visible">
             <defs>
@@ -2878,7 +2974,7 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
 <circle cx="70" cy="60" r="4" fill="var(--text-dim)" class="chart-dot" data-val="68.2" data-lbl="2023"/>
 <circle cx="130" cy="45" r="4" fill="var(--accent)" class="chart-dot" data-val="59.44" data-lbl="2024"/>
 <circle cx="190" cy="30" r="4" fill="var(--accent)" class="chart-dot" data-val="57.1" data-lbl="Jan 25"/>
-<circle cx="250" cy="18" r="5" fill="var(--success)" class="chart-dot" data-val="55.11" data-lbl="Best"/>
+<circle cx="250" cy="18" r="5" fill="var(--success)" class="chart-dot" data-val="48.96" data-lbl="Best"/>
 
           </svg>
           <div class="chart-tooltip"></div>
@@ -3148,8 +3244,8 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
           <tbody>
             <tr>
               <td><span class="stroke-name">Freestyle</span></td>
-              <td class="time-val">41.41</td>
-              <td class="time-val">1:35.61</td>
+              <td class="time-val">40.25</td>
+              <td class="time-val">1:28.10</td>
               <td class="time-val">3:27.52</td>
               <td style="text-align:right;font-family:'DM Mono',monospace;font-size:11px;color:var(--green);">−2.65 / −2.31</td>
             </tr>
@@ -3162,7 +3258,7 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
             </tr>
             <tr>
               <td><span class="stroke-name">Breaststroke</span></td>
-              <td class="time-val">55.11</td>
+              <td class="time-val">48.96</td>
               <td class="time-val">1:59.92</td>
               <td class="time-na">—</td>
               <td style="text-align:right;font-family:'DM Mono',monospace;font-size:11px;color:var(--green);">−1.08 / −0.64</td>
@@ -3195,9 +3291,9 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
     <div class="scene-header"><div class="scene-title shimmer-text">Event Snapshot</div></div>
     <p class="flip-hint">Tap or hover a card to flip ↩</p>
     <div class="flip-grid">
-      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">50 Freestyle · LCM · T1</div><div class="flip-time">41.41</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −2.65s/meet</div></div><div class="flip-back t1"><div class="flip-back-title">50 Free Breakdown</div><div class="flip-back-stat">A Target: 36.59<br>Gap: −4.82s<br>1yr total: −5.3s<br>3yr total: −17.48s<br>Best: Ragnarok '25</div></div></div></div>
-      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">50 Breaststroke · LCM · T1</div><div class="flip-time">55.11</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −1.08s/meet</div></div><div class="flip-back t1"><div class="flip-back-title">50 Breast Breakdown</div><div class="flip-back-stat">A Target: 48.79<br>Gap: −6.32s<br>1yr total: −4.33s<br>3yr total: −20.53s<br>Best: Aloha '25</div></div></div></div>
-      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">100 Freestyle · LCM · T2</div><div class="flip-time">1:35.61</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −2.31s/meet</div></div><div class="flip-back t2"><div class="flip-back-title">100 Free Breakdown</div><div class="flip-back-stat">A Target: 1:21.89<br>Gap: −13.72s<br>1yr total: −6.93s<br>3yr total: −31.03s<br>Best: Ragnarok '25</div></div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">50 Freestyle · LCM · T1</div><div class="flip-time">40.25</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −1.16s Apr 2026</div></div><div class="flip-back t1"><div class="flip-back-title">50 Free Breakdown</div><div class="flip-back-stat">A Target: 36.59<br>Gap: −3.66s<br>1yr total: −5.3s<br>3yr total: −17.48s<br>Best: Intrasquad '26</div></div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">50 Breaststroke · LCM · T1</div><div class="flip-time">48.96</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −6.15s Apr 2026 🔥</div></div><div class="flip-back t1"><div class="flip-back-title">50 Breast Breakdown</div><div class="flip-back-stat">A Target: 48.79<br>Gap: −0.17s 🔥<br>1yr total: −4.33s<br>3yr total: −20.53s<br>Best: Intrasquad '26</div></div></div></div>
+      <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">100 Freestyle · LCM · T2</div><div class="flip-time">1:28.10</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −7.51s Apr 2026 🔥</div></div><div class="flip-back t2"><div class="flip-back-title">100 Free Breakdown</div><div class="flip-back-stat">A Target: 1:21.89<br>Gap: −6.21s<br>1yr total: −6.93s<br>3yr total: −31.03s<br>Best: Intrasquad '26</div></div></div></div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">100 Breaststroke · LCM · T2</div><div class="flip-time">1:59.92</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −0.64s/meet</div></div><div class="flip-back t2"><div class="flip-back-title">100 Breast Breakdown</div><div class="flip-back-stat">A Target: 1:48.39<br>Gap: −11.53s<br>1yr total: −1.29s<br>3yr total: −37.6s<br>Best: Ragnarok '25</div></div></div></div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">50 Butterfly · LCM · T3</div><div class="flip-time">51.51</div><div class="flip-event">Best Time</div><div class="flip-trend-chip">↓ −1.38s/meet</div></div><div class="flip-back t3"><div class="flip-back-title">50 Fly Breakdown</div><div class="flip-back-stat">A Target: 41.59<br>Gap: −9.92s<br>1yr total: −5.53s<br>3yr total: −19.21s<br>Best: Ragnarok '25</div></div></div></div>
       <div class="flip-card" onclick="this.classList.toggle('flipped')"><div class="flip-card-inner"><div class="flip-front"><div class="flip-label">50 Backstroke · LCM · Dev</div><div class="flip-time">54.12</div><div class="flip-event">Best Time</div><div class="flip-trend-chip" style="background:rgba(160,174,192,0.1);color:#6b7f99;border-color:rgba(160,174,192,0.2);">↓ −1.35s/meet</div></div><div class="flip-back dev"><div class="flip-back-title">50 Back Breakdown</div><div class="flip-back-stat">A Target: 43.59<br>Gap: −10.53s<br>1yr total: −4.04s<br>3yr total: −11.65s<br>Best: Spring Invite '25</div></div></div></div>
@@ -3249,13 +3345,13 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
             <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);margin-left:8px;">45.59 → 41.59</span>
           </div>
           <div class="gap-vals">
-            <span class="gap-chip chip-state" style="font-size:11px;">52% · −4.00s</span>
+            <span class="gap-chip chip-state" style="font-size:11px;">97% · −0.17s 🔥</span>
           </div>
         </div>
         <div class="heat-gauge-wrap">
           <div class="heat-track">
-            <div class="heat-pct-label" style="left:52%;color:#f59e0b;">52%</div>
-            <div class="heat-needle" style="left:3%;" data-heat="52"></div>
+            <div class="heat-pct-label" style="left:97%;color:#ef4444;">97%</div>
+            <div class="heat-needle" style="left:3%;" data-heat="97"></div>
           </div>
           <div class="heat-labels">
             <span>❄️ Far from cut</span>
@@ -3284,8 +3380,8 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         </div>
         <div class="heat-gauge-wrap">
           <div class="heat-track">
-            <div class="heat-pct-label" style="left:10%;color:#bae6fd;">10%</div>
-            <div class="heat-needle" style="left:3%;" data-heat="10"></div>
+            <div class="heat-pct-label" style="left:35%;color:#38bdf8;">35%</div>
+            <div class="heat-needle" style="left:3%;" data-heat="35"></div>
           </div>
           <div class="heat-labels">
             <span>❄️ Far from cut</span>
@@ -3344,8 +3440,8 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         </div>
         <div class="heat-gauge-wrap">
           <div class="heat-track">
-            <div class="heat-pct-label" style="left:23%;color:#38bdf8;">23%</div>
-            <div class="heat-needle" style="left:3%;" data-heat="23"></div>
+            <div class="heat-pct-label" style="left:65%;color:#f59e0b;">65%</div>
+            <div class="heat-needle" style="left:3%;" data-heat="65"></div>
           </div>
           <div class="heat-labels">
             <span>❄️ Far from cut</span>
@@ -3503,21 +3599,21 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         <div class="pct-number" id="pct50fr">--</div>
         <div class="pct-label">percentile nationally</div>
         <div class="pct-bar-wrap"><div class="pct-bar" data-pct="72"></div></div>
-        <div class="pct-context">Top 28% · 41.41s</div>
+        <div class="pct-context">Top 32% · 40.25s</div>
       </div>
       <div class="pct-card">
         <div class="pct-event">50 Breast LCM</div>
         <div class="pct-number" id="pct50br">--</div>
         <div class="pct-label">percentile nationally</div>
         <div class="pct-bar-wrap"><div class="pct-bar" data-pct="58"></div></div>
-        <div class="pct-context">Top 42% · 55.11s</div>
+        <div class="pct-context">Top 55% · 48.96s</div>
       </div>
       <div class="pct-card">
         <div class="pct-event">100 Free LCM</div>
         <div class="pct-number" id="pct100fr">--</div>
         <div class="pct-label">percentile nationally</div>
         <div class="pct-bar-wrap"><div class="pct-bar" data-pct="65"></div></div>
-        <div class="pct-context">Top 35% · 1:35.61</div>
+        <div class="pct-context">Top 40% · 1:28.10</div>
       </div>
       <div class="pct-card">
         <div class="pct-event">50 Fly LCM</div>
@@ -3566,6 +3662,48 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
 
     <div class="meet-results-grid">
 
+      <!-- ✅ JTSC Spring Intrasquad — COMPLETED Apr 10, 2026 -->
+      <div class="mr-card" style="border-top-color:var(--success);border-color:rgba(15,122,74,0.25);">
+        <div class="mr-header" style="background:rgba(15,122,74,0.05);">
+          <div>
+            <div class="mr-meet-name" style="color:var(--success);">✅ JTSC Spring Intrasquad</div>
+            <div class="mr-date">Apr 10, 2026 · LCM</div>
+          </div>
+          <span class="mr-phase-badge" style="background:rgba(15,122,74,0.12);color:var(--success);border:1px solid rgba(15,122,74,0.25);">🏆 3 New PBs</span>
+        </div>
+        <div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--success);letter-spacing:0.12em;text-transform:uppercase;padding:5px 18px 3px;background:rgba(15,122,74,0.05);border-bottom:1px solid var(--border);">Season opener · Age 10 · BB standard met in 3 events</div>
+        <div class="mr-col-head">
+          <span>Event</span><span>Time</span><span>vs PB</span><span>Standard</span>
+        </div>
+        <div class="mr-row" style="background:rgba(15,122,74,0.04);">
+          <span class="mr-event" style="color:var(--success);">50 Free 🏆</span>
+          <span class="mr-target" style="color:var(--success);font-weight:700;">40.25</span>
+          <span class="mr-result" style="color:var(--success);">↓ −1.16s PB</span>
+          <span class="mr-status" style="color:var(--gold);font-weight:700;">BB</span>
+        </div>
+        <div class="mr-row" style="background:rgba(15,122,74,0.04);">
+          <span class="mr-event" style="color:var(--success);">100 Free 🏆</span>
+          <span class="mr-target" style="color:var(--success);font-weight:700;">1:28.10</span>
+          <span class="mr-result" style="color:var(--success);">↓ −7.51s PB</span>
+          <span class="mr-status" style="color:var(--gold);font-weight:700;">BB</span>
+        </div>
+        <div class="mr-row" style="background:rgba(180,83,9,0.06);">
+          <span class="mr-event" style="color:var(--gold);">50 Breast 🔥</span>
+          <span class="mr-target" style="color:var(--gold);font-weight:700;">48.96</span>
+          <span class="mr-result" style="color:var(--gold);">↓ −6.15s PB</span>
+          <span class="mr-status" style="color:var(--gold);font-weight:700;">BB</span>
+        </div>
+        <div class="mr-row">
+          <span class="mr-event" style="color:var(--text-dim);">50 Fly</span>
+          <span class="mr-target" style="color:var(--text-dim);">52.79</span>
+          <span class="mr-result" style="color:var(--text-dim);">+1.28s</span>
+          <span class="mr-status" style="color:var(--text-dim);">B</span>
+        </div>
+        <div style="padding:10px 18px 14px;font-size:11px;color:var(--success);background:rgba(15,122,74,0.04);border-top:1px solid var(--border-soft);">
+          🎉 50 Breast: 48.96 — only 0.17s from the A time standard!
+        </div>
+      </div>
+
       <!-- JTSC Spring Invite — THIS WEEKEND — coach approved events -->
       <div class="mr-card upcoming" style="border-top-color:var(--coral);border-color:rgba(192,57,43,0.25);">
         <div class="mr-header" style="background:rgba(192,57,43,0.04);">
@@ -3581,19 +3719,19 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
         </div>
         <div class="mr-row editable" onclick="openEntry(this)">
           <span class="mr-event" style="color:var(--gold);">50 Free</span>
-          <span class="mr-target" style="color:var(--muted);">41.41L</span>
+          <span class="mr-target" style="color:var(--muted);">40.25L</span>
           <span class="mr-result" style="color:var(--gold);font-style:normal;">&lt; 40.6</span>
           <span class="mr-status">⏳</span>
         </div>
         <div class="mr-row editable" onclick="openEntry(this)">
           <span class="mr-event" style="color:var(--gold);">50 Breast</span>
-          <span class="mr-target" style="color:var(--muted);">55.11L</span>
+          <span class="mr-target" style="color:var(--muted);">48.96L</span>
           <span class="mr-result" style="color:var(--gold);font-style:normal;">&lt; 54.1</span>
           <span class="mr-status">⏳</span>
         </div>
         <div class="mr-row editable" onclick="openEntry(this)">
           <span class="mr-event" style="color:var(--aqua);">100 Free</span>
-          <span class="mr-target" style="color:var(--muted);">1:35.61L</span>
+          <span class="mr-target" style="color:var(--muted);">1:28.10L</span>
           <span class="mr-result" style="color:var(--aqua);font-style:normal;">&lt; 1:31</span>
           <span class="mr-status">⏳</span>
         </div>
@@ -4349,49 +4487,49 @@ body, .tab-nav, .card, .mr-card, .db-card, .trend-card,
 
       <div class="vel-card ahead" data-event="50 Free LCM">
         <div class="vel-event">50 Free LCM</div>
-        <div class="vel-needed">Need −0.54s/meet · Getting −2.65s/meet</div>
+        <div class="vel-needed">Need −0.54s/meet · Getting −2.65/meet ✅</div>
         <div class="vel-meter">
           <div class="vel-fill ahead" style="width:85%"></div>
           <div class="vel-needle" style="left:40%"></div>
         </div>
         <div class="vel-status">
           <span class="vel-badge ahead">🟢 Ahead of pace</span>
-          <span class="vel-rate ahead">−2.65/meet</span>
+          <span class="vel-rate ahead">−1.16 this meet</span>
         </div>
         <div class="vel-ragnarok-bar">
-          Projected at Ragnarok: <span class="vel-proj">~38.8s</span>
+          Projected at Ragnarok: <span class="vel-proj">~37.5s</span>
         </div>
       </div>
 
-      <div class="vel-card behind" data-event="50 Breast LCM">
+      <div class="vel-card ahead" data-event="50 Breast LCM">
         <div class="vel-event">50 Breast LCM</div>
-        <div class="vel-needed">Need −1.26s/meet · Getting −1.08s/meet</div>
+        <div class="vel-needed">Need −1.26s/meet · Getting −6.15 this meet 🔥</div>
         <div class="vel-meter">
-          <div class="vel-fill behind" style="width:55%"></div>
+          <div class="vel-fill ahead" style="width:97%"></div>
           <div class="vel-needle" style="left:62%"></div>
         </div>
         <div class="vel-status">
-          <span class="vel-badge behind">🔴 Slightly behind</span>
-          <span class="vel-rate behind">−1.08/meet</span>
+          <span class="vel-badge ahead">🟢 A Time zone! 🔥</span>
+          <span class="vel-rate ahead">−6.15 this meet</span>
         </div>
         <div class="vel-ragnarok-bar">
-          Projected at Ragnarok: <span class="vel-proj">~50.3s</span>
+          Projected at Ragnarok: <span class="vel-proj">~46.5s</span>
         </div>
       </div>
 
-      <div class="vel-card behind" data-event="100 Free LCM">
+      <div class="vel-card ahead" data-event="100 Free LCM">
         <div class="vel-event">100 Free LCM</div>
-        <div class="vel-needed">Need −2.81s/meet · Getting −2.31s/meet</div>
+        <div class="vel-needed">Need −2.81s/meet · Getting −7.51 this meet 🔥</div>
         <div class="vel-meter">
-          <div class="vel-fill behind" style="width:50%"></div>
+          <div class="vel-fill ahead" style="width:82%"></div>
           <div class="vel-needle" style="left:58%"></div>
         </div>
         <div class="vel-status">
-          <span class="vel-badge behind">🔴 Behind pace</span>
-          <span class="vel-rate behind">−2.31/meet</span>
+          <span class="vel-badge ahead">🟢 Massive drop!</span>
+          <span class="vel-rate ahead">−7.51 this meet</span>
         </div>
         <div class="vel-ragnarok-bar">
-          Projected at Ragnarok: <span class="vel-proj">~1:28.5</span>
+          Projected at Ragnarok: <span class="vel-proj">~1:22.0</span>
         </div>
       </div>
 
@@ -4611,6 +4749,70 @@ function renderPhoto(dataUrl) {
     if (saved) renderPhoto(saved);
   } catch(e) {}
 })();
+
+/* ═══════════════════════════════════════
+   💾 EXPORT WITH PHOTO EMBEDDED
+═══════════════════════════════════════ */
+function exportWithPhoto() {
+  const btn = document.querySelector('.export-btn');
+  btn.classList.add('saving');
+  btn.textContent = '⏳ Saving...';
+
+  setTimeout(() => {
+    try {
+      // Get the full HTML source
+      let html = document.documentElement.outerHTML;
+
+      // Replace the placeholder photo element with the actual loaded photo
+      const photoEl = document.getElementById('profilePhoto');
+      const img = photoEl?.querySelector('img');
+      if (img && img.src.startsWith('data:')) {
+        // Embed the base64 photo directly into the HTML string
+        // Replace the default SVG placeholder with an img tag
+        const escapedSrc = img.src.replace(/&/g, '&amp;');
+        html = html.replace(
+          /<div class="profile-photo" id="profilePhoto">[\s\S]*?<\/div>/,
+          `<div class="profile-photo" id="profilePhoto"><img src="${img.src}" alt="Saisha"/><div class="profile-photo-hint">📷</div></div>`
+        );
+      }
+
+      // Also bake in mantra so it shows without JS needing to run
+      const mantraEl = document.getElementById('heroMantra');
+      if (mantraEl && mantraEl.textContent.trim()) {
+        const mantra = mantraEl.textContent.trim()
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        // Inject a script that pre-sets the mantra
+        html = html.replace(
+          '</body>',
+          `<script>document.addEventListener('DOMContentLoaded',()=>{const m=document.getElementById('heroMantra');if(m&&!m.textContent.trim())m.textContent="${mantra.replace(/"/g,'\\"')}";})<\/script></body>`
+        );
+      }
+
+      // Download the file
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url  = URL.createObjectURL(blob);
+      const a    = document.createElement('a');
+      a.href     = url;
+      a.download = 'saisha_dashboard_portable.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      btn.classList.remove('saving');
+      btn.textContent = '✅ Saved!';
+      setTimeout(() => {
+        btn.textContent = '💾 Export with Photo';
+      }, 2500);
+
+    } catch(err) {
+      btn.classList.remove('saving');
+      btn.textContent = '❌ Error — try again';
+      setTimeout(() => { btn.textContent = '💾 Export with Photo'; }, 3000);
+      console.error('Export failed:', err);
+    }
+  }, 100);
+}
 
 /* ═══════════════════════════════════════
    🌙 DARK / LIGHT MODE TOGGLE
@@ -5883,6 +6085,8 @@ function updateCountdown() {
   if (nEl)  nEl.textContent  = nextDays;
   if (bEl)  bEl.textContent  = nextDays;
   if (rnEl) rnEl.textContent = nextDays;
+  const achEl = document.getElementById('achieveDays');
+  if (achEl) achEl.textContent = nextDays;
 }
 
 /* ── ANIMATED COUNTERS ── */
