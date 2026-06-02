@@ -5748,26 +5748,31 @@ function buildTaperTimeline() {
   if (!el) return;
 
   const weeks = [
-    { label: 'Week 1', date: 'Apr 14', phase: 'Base', vol: 90, color: '#0284a8' },
-    { label: 'Week 2', date: 'Apr 21', phase: 'Pre-Meet', vol: 75, color: '#0284a8', note: '↓ Spring Invite' },
-    { label: 'Week 3', date: 'Apr 28', phase: 'Recovery', vol: 60, color: '#38bdf8' },
-    { label: 'Week 4', date: 'May 5',  phase: 'Build',    vol: 85, color: '#0284a8' },
-    { label: 'Week 5', date: 'May 12', phase: 'Pre-Meet', vol: 70, color: '#0284a8', note: '↓ Aloha' },
-    { label: 'Week 6', date: 'May 19', phase: 'Build',    vol: 88, color: '#0284a8' },
-    { label: 'Week 7', date: 'May 26', phase: 'Pre-Meet', vol: 65, color: '#0284a8', note: '↓ Splash' },
-    { label: 'Week 8', date: 'Jun 2',  phase: 'Peak Load',vol: 95, color: '#0284a8' },
-    { label: 'Week 9', date: 'Jun 9',  phase: 'Build',    vol: 80, color: '#0284a8' },
-    { label: 'Week 10',date: 'Jun 16', phase: 'Taper',    vol: 60, color: '#f59e0b' },
-    { label: 'Week 11',date: 'Jun 23', phase: 'Taper',    vol: 40, color: '#f59e0b', note: '↓ Firecracker' },
-    { label: 'Week 12',date: 'Jun 30', phase: 'Race Prep',vol: 25, color: '#ef4444' },
-    { label: 'RACE',   date: 'Jul 17', phase: '⚡ State Meet',vol: 10, color: '#fbbf24' },
+    { label: 'Week 1', date: 'Apr 14', start: '2026-04-14', phase: 'Base', vol: 90, color: '#0284a8' },
+    { label: 'Week 2', date: 'Apr 21', start: '2026-04-21', phase: 'Pre-Meet', vol: 75, color: '#0284a8', note: '↓ Spring Invite' },
+    { label: 'Week 3', date: 'Apr 28', start: '2026-04-28', phase: 'Recovery', vol: 60, color: '#38bdf8' },
+    { label: 'Week 4', date: 'May 5',  start: '2026-05-05', phase: 'Build',    vol: 85, color: '#0284a8' },
+    { label: 'Week 5', date: 'May 12', start: '2026-05-12', phase: 'Pre-Meet', vol: 70, color: '#0284a8', note: '↓ Aloha' },
+    { label: 'Week 6', date: 'May 19', start: '2026-05-19', phase: 'Build',    vol: 88, color: '#0284a8' },
+    { label: 'Week 7', date: 'May 26', start: '2026-05-26', phase: 'Recovery', vol: 55, color: '#38bdf8', note: '↓ AES Splash' },
+    { label: 'Week 8', date: 'Jun 1',  start: '2026-06-01', phase: 'Reset + Build',vol: 72, color: '#0284a8', note: 'Today · post-meet reset' },
+    { label: 'Week 9', date: 'Jun 8',  start: '2026-06-08', phase: 'Build',    vol: 84, color: '#0284a8' },
+    { label: 'Week 10',date: 'Jun 15', start: '2026-06-15', phase: 'Taper',    vol: 62, color: '#f59e0b' },
+    { label: 'Week 11',date: 'Jun 22', start: '2026-06-22', phase: 'Taper',    vol: 42, color: '#f59e0b', note: '↓ Firecracker' },
+    { label: 'Week 12',date: 'Jun 29', start: '2026-06-29', phase: 'Race Prep',vol: 28, color: '#ef4444' },
+    { label: 'Week 13',date: 'Jul 6',  start: '2026-07-06', phase: 'Sharpen',  vol: 22, color: '#ef4444' },
+    { label: 'RACE',   date: 'Jul 17', start: '2026-07-17', phase: '⚡ State Meet',vol: 10, color: '#fbbf24' },
   ];
 
   const today = new Date();
+  const todayKey = new Date(today.getFullYear(), today.getMonth(), today.getDate());
   el.innerHTML = '';
   weeks.forEach((w, i) => {
-    const weekDate = new Date('2026-' + w.date.replace('Apr','04').replace('May','05').replace('Jun','06').replace('Jul','07').split(' ').reverse().join('-').replace(/(\d+)-(\w+)/,'$2-$1').replace(/Apr|May|Jun|Jul/g,m=>({Apr:'04',May:'05',Jun:'06',Jul:'07'}[m])));
-    const isCurrent = i === 0; // simplified — week 1 is current
+    const weekStart = new Date(w.start + 'T00:00:00');
+    const nextStart = weeks[i + 1]
+      ? new Date(weeks[i + 1].start + 'T00:00:00')
+      : new Date(weekStart.getTime() + 7 * 86400000);
+    const isCurrent = todayKey >= weekStart && todayKey < nextStart;
 
     const div = document.createElement('div');
     div.className = `taper-week${isCurrent ? ' current' : ''}`;
